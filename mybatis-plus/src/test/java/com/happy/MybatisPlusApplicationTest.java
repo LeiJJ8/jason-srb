@@ -44,6 +44,7 @@ public class MybatisPlusApplicationTest {
     @Test
     void testSelect() {
         List<User> userList = userService.list();
+        System.out.println("666");
         System.out.println(userList);
     }
 
