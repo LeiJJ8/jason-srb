@@ -1,12 +1,13 @@
 package com.happy.srb.core.controller.admin;
 
+import com.happy.common.result.Result;
 import com.happy.srb.core.pojo.entity.IntegralGrade;
 import com.happy.srb.core.service.IntegralGradeService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +22,21 @@ public class AdminIntegralGradeController {
     @Autowired
     private IntegralGradeService integralGradeService;
 
+    @ApiOperation("积分等级列表")
     @GetMapping("/list")
-    public List<? extends IntegralGrade> listAll(){
-        return integralGradeService.list();
+    public Result listAll(){
+        List<IntegralGrade> list = integralGradeService.list();
+        return Result.ok().data("list",list);
+    }
+
+    @ApiOperation(value = "根据id删除积分等级",notes = "逻辑删除")
+    @DeleteMapping("/remove/{id}")
+    public Result removeById(@ApiParam(value = "数据id",required = true,example = "1") @PathVariable("id") Long id){
+        boolean flag = integralGradeService.removeById(id);
+        if(flag){
+            return Result.ok().message("删除成功");
+        }else{
+            return Result.error().message("删除失败");
+        }
     }
 }
