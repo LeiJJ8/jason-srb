@@ -1,7 +1,6 @@
 package com.happy.srb.core.controller.admin;
 
 import com.happy.common.exception.Assert;
-import com.happy.common.exception.BusinessException;
 import com.happy.common.result.ResponseEnum;
 import com.happy.common.result.Result;
 import com.happy.srb.core.pojo.entity.IntegralGrade;
@@ -9,21 +8,22 @@ import com.happy.srb.core.service.IntegralGradeService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author LJJ
- * @create 2021-10-27 21:07
+ * @author LeiJJ
+ * @date 2021-10-27 21:07
  */
 @Slf4j
 @RestController
+@CrossOrigin
 @RequestMapping("/admin/core/integralGrade")
 public class AdminIntegralGradeController {
 
-    @Autowired
+    @Resource
     private IntegralGradeService integralGradeService;
 
     @ApiOperation("积分等级列表")

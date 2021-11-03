@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  * @author LJJ
- * @create 2021-10-27 20:02
+ * @date 2021-10-27 20:02
  */
 @CrossOrigin
 @SpringBootApplication
