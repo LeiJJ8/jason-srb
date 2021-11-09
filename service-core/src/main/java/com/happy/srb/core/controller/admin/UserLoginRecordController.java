@@ -22,7 +22,6 @@ import java.util.List;
  * @since 2021-10-27
  */
 @Api(tags = "会员登录日志接口")
-@CrossOrigin
 @Slf4j
 @RestController
 @RequestMapping("/admin/core/userLoginRecord")
