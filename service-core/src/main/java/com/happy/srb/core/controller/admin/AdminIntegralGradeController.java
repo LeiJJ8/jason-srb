@@ -54,7 +54,7 @@ public class AdminIntegralGradeController {
 
         //if(integralGrade.getBorrowAmount() == null)
         //    throw new BusinessException(ResponseEnum.BORROW_AMOUNT_NULL_ERROR);
-        Assert.nutNoll(integralGrade.getBorrowAmount(),ResponseEnum.BORROW_AMOUNT_NULL_ERROR);
+        Assert.notNoll(integralGrade.getBorrowAmount(),ResponseEnum.BORROW_AMOUNT_NULL_ERROR);
 
         boolean save = integralGradeService.save(integralGrade);
         if(save){

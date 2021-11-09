@@ -1,0 +1,15 @@
+server:
+  port: 8130
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: servive-oss
+
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    keyId: LTAI5tDaa9ZowFhq4SPu9bj7
+    keySecret: DDO4IUMZpYfX8GoyWAxweN0Z8EcEif
+    bucketName: ljj-srb-file

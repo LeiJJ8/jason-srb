@@ -17,7 +17,7 @@ public abstract class Assert {
      * @param obj 待判断对象
      * @param responseEnum 响应的信息
      */
-    public static void nutNoll(Object obj, ResponseEnum responseEnum){
+    public static void notNoll(Object obj, ResponseEnum responseEnum){
         if(obj == null){
             throw new BusinessException(responseEnum);
         }

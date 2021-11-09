@@ -52,7 +52,8 @@ public class ApiSmsController {
 
         service.send(mobile, SmsProperties.TEMPLATE_CODE, codeMap);
 
-        redisTemplate.opsForValue().set("code",code,5, TimeUnit.MINUTES);
+        //redisTemplate.opsForValue().set("code",code,5, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set("srb:sms:code:" + mobile,code);
 
         return Result.ok().message("短信发送成功");
     }

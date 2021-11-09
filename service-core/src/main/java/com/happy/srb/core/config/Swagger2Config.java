@@ -1,4 +1,4 @@
-package com.happy.srb.base.config;
+package com.happy.srb.core.config;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
@@ -29,6 +29,15 @@ public class Swagger2Config {
                 .build();
     }
 
+    private ApiInfo adminApiInfo(){
+        return new ApiInfoBuilder()
+                .title("尚融宝后台管理系统-API文档")
+                .description("本文档描述了尚融宝后台管理系统接口")
+                .version("1.0")
+                .contact(new Contact("jason","http://happy.com","jasonking99663@gmail.com"))
+                .build();
+    }
+
     @Bean
     public Docket apiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
@@ -39,17 +48,7 @@ public class Swagger2Config {
                 .build();
     }
 
-    private ApiInfo adminApiInfo(){
-        return new ApiInfoBuilder()
-                .title("尚融宝后台管理系统-API文档")
-                .description("本文档描述了尚融宝后台管理系统接口")
-                .version("1.0")
-                .contact(new Contact("jason","http://happy.com","jasonking99663@gmail.com"))
-                .build();
-    }
-
     private ApiInfo apiInfo(){
-
         return new ApiInfoBuilder()
                 .title("尚融宝-API文档")
                 .description("本文档描述了尚融宝接口")
