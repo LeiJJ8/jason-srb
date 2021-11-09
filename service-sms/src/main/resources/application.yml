@@ -24,7 +24,7 @@ spring:
 aliyun:
   sms:
     region-id: cn-hangzhou
-    key-id: LTAI5tM67rB6MDgPMr6toKhm
-    key-secret: 7No8JvN7yOLT6rVT5gRahkTouYETdW
+    key-id: LTAI5tM67DrB6MDgPMr6toKhm
+    key-secret: 7No8JvN7DyOLT6rVT5gRahkTouYETdW
     template-code: SMS_217425770
     sign-name: 北京课时教育
