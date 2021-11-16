@@ -1,12 +1,16 @@
 package com.happy.srb.core.pojo.entity;
 
 import java.math.BigDecimal;
+
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -40,9 +44,12 @@ public class IntegralGrade implements Serializable {
     @ApiModelProperty(value = "借款额度")
     private BigDecimal borrowAmount;
 
-    @ApiModelProperty(value = "创建时间")
+    //@JSONField( format = "yyyy-MM-dd' 'HH:mm:ss")
+    @JsonFormat( pattern="yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(value = "创建时间", example = "2019-01-01 8:00:00")
     private LocalDateTime createTime;
 
+    @JsonFormat( pattern="yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 

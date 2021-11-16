@@ -17,4 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class IntegralGradeServiceImpl extends ServiceImpl<IntegralGradeMapper, IntegralGrade> implements IntegralGradeService {
 
+    @Override
+    public boolean updateGrade(IntegralGrade integralGrade) {
+        return baseMapper.updateById(integralGrade) > 0;
+    }
 }
