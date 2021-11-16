@@ -27,8 +27,14 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+  rabbitmq:
+    host: 192.168.152.131
+    port: 5672
+    virtual-host: /srbhost
+    username: srbuser
+    password: 123456
 
 mybatis-plus: #mybatis
   #configuration:
-   # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:com/happy/srb/core/mapper/xml/*.xml

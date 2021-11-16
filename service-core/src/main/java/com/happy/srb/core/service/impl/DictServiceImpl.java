@@ -80,6 +80,31 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         return dictList;
     }
 
+    @Override
+    public List<Dict> findByDictCode(String dictCode) {
+        QueryWrapper<Dict> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("dict_code",dictCode);
+        Dict dict = baseMapper.selectOne(queryWrapper);
+        List<Dict> dictList = listByParentId(dict.getId());
+        return dictList;
+    }
+
+    @Override
+    public String getNameByParentDictCodeAndValue(String dictCode, Integer value) {
+        QueryWrapper<Dict> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("dict_code",dictCode);
+        Dict parentDict = baseMapper.selectOne(queryWrapper);
+        if(parentDict == null) return "";
+
+        queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("parent_id",parentDict.getId())
+                    .eq("value",value);
+        Dict dict = baseMapper.selectOne(queryWrapper);
+        if(dict == null) return "";
+
+        return dict.getName();
+    }
+
     /**
      * 判断该节点是否有子节点
      */

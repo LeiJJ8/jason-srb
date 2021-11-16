@@ -53,6 +53,7 @@ public class ApiSmsController {
         String code = RandomUtils.getSixBitRandom();
         Map<String, Object> codeMap = new HashMap<>();
         codeMap.put("code",code);
+        System.out.println();
 
         service.send(mobile, SmsProperties.TEMPLATE_CODE, codeMap);
 

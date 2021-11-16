@@ -1,7 +1,10 @@
 package com.happy.srb.core.mapper;
 
+import com.happy.srb.core.pojo.entity.BorrowInfo;
 import com.happy.srb.core.pojo.entity.UserInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>

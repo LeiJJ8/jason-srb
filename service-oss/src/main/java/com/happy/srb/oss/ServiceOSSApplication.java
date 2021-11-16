@@ -15,6 +15,10 @@ import org.springframework.context.annotation.ComponentScan;
 public class ServiceOSSApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceOSSApplication.class,args);
+        try {
+            SpringApplication.run(ServiceOSSApplication.class,args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

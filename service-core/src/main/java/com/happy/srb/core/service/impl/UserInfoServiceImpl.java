@@ -94,6 +94,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
 
         String token = JwtUtils.createToken(userInfo.getId(), userInfo.getName());
         UserInfoVO userInfoVO = new UserInfoVO();
+        userInfoVO.setId(userInfo.getId());
         userInfoVO.setToken(token);
         userInfoVO.setName(userInfo.getName());
         userInfoVO.setNickName(userInfo.getNickName());
@@ -136,6 +137,14 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         queryWrapper.eq("mobile",mobile);
         Integer count = baseMapper.selectCount(queryWrapper);
         return count > 0;
+    }
+
+    @Override
+    public String getMobileByBindCode(String bindCode) {
+        QueryWrapper<UserInfo> userInfoQueryWrapper = new QueryWrapper<>();
+        userInfoQueryWrapper.eq("bind_code", bindCode);
+        UserInfo userInfo = baseMapper.selectOne(userInfoQueryWrapper);
+        return userInfo.getMobile();
     }
 
 

@@ -46,6 +46,11 @@ public class UserAccount implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
+    // 扩展字段
+    @ApiModelProperty(value = "登录记录")
+    @TableField(exist = false)
+    private LocalDateTime loginRecord;
+
     @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
     @TableField("is_deleted")
     @TableLogic

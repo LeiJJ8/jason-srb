@@ -2,6 +2,9 @@ package com.happy.srb.core.mapper;
 
 import com.happy.srb.core.pojo.entity.UserAccount;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.data.repository.query.Param;
+
+import java.math.BigDecimal;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface UserAccountMapper extends BaseMapper<UserAccount> {
 
+    void updateAccount( @Param("bindCode")String bindCode,
+                        @Param("amount")BigDecimal amount,
+                        @Param("freezeAmount")BigDecimal freezeAmount);
 }

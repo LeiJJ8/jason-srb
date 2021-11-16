@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -48,6 +51,19 @@ public class BorrowInfo implements Serializable {
 
     @ApiModelProperty(value = "资金用途")
     private Integer moneyUse;
+
+    //扩展字段
+    @ApiModelProperty(value = "姓名")
+    @TableField(exist = false)
+    private String name;
+
+    @ApiModelProperty(value = "手机")
+    @TableField(exist = false)
+    private String mobile;
+
+    @ApiModelProperty(value = "其他参数")
+    @TableField(exist = false)
+    private Map<String,Object> param = new HashMap<>();
 
     @ApiModelProperty(value = "状态（0：未提交，1：审核中， 2：审核通过， -1：审核不通过）")
     private Integer status;

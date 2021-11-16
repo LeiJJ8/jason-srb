@@ -6,8 +6,6 @@ spring:
     active: dev # 环境设置
   application:
     name: service-sms # 服务名
-
-  #spring:
   redis:
     host: 192.168.152.131
     port: 6379
@@ -23,6 +21,12 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+  rabbitmq:
+    host: 192.168.152.131
+    port: 5672
+    virtual-host: /srbhost
+    username: srbuser
+    password: 123456
 
 
 #阿里云短信
